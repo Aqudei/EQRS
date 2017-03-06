@@ -35,6 +35,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GSMCommServer, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
+      <HintPath>..\packages\GSMComm.1.21.1\lib\GSMCommServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GSMCommShared, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
+      <HintPath>..\packages\GSMComm.1.21.1\lib\GSMCommShared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GSMCommunication, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
+      <HintPath>..\packages\GSMComm.1.21.1\lib\GSMCommunication.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PDUConverter, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
+      <HintPath>..\packages\GSMComm.1.21.1\lib\PDUConverter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -58,6 +74,9 @@
       <Project>{62e72493-bf3a-4913-8401-c9092f4f239a}</Project>
       <Name>EQRSWin</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

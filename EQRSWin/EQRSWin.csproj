@@ -118,11 +118,11 @@
     <Compile Include="TabPages\RespondersPage.Designer.cs">
       <DependentUpon>RespondersPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="TabPages\SettingsPage.cs">
+    <Compile Include="TabPages\ETransponderPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TabPages\SettingsPage.Designer.cs">
-      <DependentUpon>SettingsPage.cs</DependentUpon>
+    <Compile Include="TabPages\ETransponderPage.Designer.cs">
+      <DependentUpon>ETransponderPage.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -149,8 +149,8 @@
     <EmbeddedResource Include="TabPages\RespondersPage.resx">
       <DependentUpon>RespondersPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TabPages\SettingsPage.resx">
-      <DependentUpon>SettingsPage.cs</DependentUpon>
+    <EmbeddedResource Include="TabPages\ETransponderPage.resx">
+      <DependentUpon>ETransponderPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

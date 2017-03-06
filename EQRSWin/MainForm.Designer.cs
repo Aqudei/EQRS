@@ -34,7 +34,7 @@
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.respondersPage1 = new EQRSWin.TabPages.RespondersPage();
-            this.settingsPage1 = new EQRSWin.TabPages.SettingsPage();
+            this.settingsPage1 = new EQRSWin.TabPages.ETransponderPage();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
             this.metroTabPage3.SuspendLayout();
@@ -78,7 +78,7 @@
             this.metroTabPage3.Name = "metroTabPage3";
             this.metroTabPage3.Size = new System.Drawing.Size(648, 352);
             this.metroTabPage3.TabIndex = 2;
-            this.metroTabPage3.Text = "Settings";
+            this.metroTabPage3.Text = "Emergency Transponder";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.VerticalScrollbarSize = 10;
@@ -133,7 +133,7 @@
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private TabPages.RespondersPage respondersPage1;
         private MetroFramework.Controls.MetroTabPage metroTabPage3;
-        private TabPages.SettingsPage settingsPage1;
+        private TabPages.ETransponderPage settingsPage1;
     }
 }
 

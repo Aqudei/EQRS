@@ -11,7 +11,7 @@ namespace DeleteLaterTest
         public void TestMethod1()
         {
 
-            SMSRouter router = new SMSRouter();
+            SMSRouter router = new SMSRouter(null);
             var wat = router.Parse("CRIM::murder::101.12::86.32::01234567890");
             Assert.IsTrue(wat.ResponderCode == "CRIM");
             Assert.IsTrue(wat.EmergencyDetail == "MURDER");

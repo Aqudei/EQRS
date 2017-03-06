@@ -11,11 +11,12 @@ using GsmComm.PduConverter;
 
 namespace EQRSWin.TabPages
 {
-    public partial class SettingsPage : MetroFramework.Controls.MetroUserControl
+    public partial class ETransponderPage : MetroFramework.Controls.MetroUserControl
     {
+        SMSRouter smsRouter;
         private delegate void SetTextCallback(string text);
         private GsmComm.GsmCommunication.GsmCommMain commMain;
-        public SettingsPage()
+        public ETransponderPage()
         {
             InitializeComponent();
 
@@ -125,15 +126,19 @@ namespace EQRSWin.TabPages
                 {
                     ShortMessage msg = (ShortMessage)obj;
                     SmsPdu pdu = commMain.DecodeReceivedMessage(msg);
-                    Output("New message received:");
-                    ShowMessage(pdu);
-                    return;
-                }
-                else
-                {
 
+                    if (pdu is SmsDeliverPdu)
+                    {
+                        // Received message
+                        SmsDeliverPdu data = (SmsDeliverPdu)pdu;
+                        Output("New message received:");
+                        smsRouter.HandleReceived(data.OriginatingAddress, data.SCTimestamp.ToDateTime(), data.UserDataText);
+                        ShowMessage(pdu);
+                        return;
+                    }
                 }
-                //Output("Error: Unknown notification object!");
+
+                Output("Error: Unknown notification object!");
             }
             catch (Exception ex)
             {
@@ -184,6 +189,7 @@ namespace EQRSWin.TabPages
                 Output("Sent: " + data.SCTimestamp.ToString());
                 Output("Message text: " + data.UserDataText);
                 Output("-------------------------------------------------------------------");
+
                 return;
             }
             if (pdu is SmsStatusReportPdu)

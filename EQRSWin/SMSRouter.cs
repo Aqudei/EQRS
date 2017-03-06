@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using GsmComm.GsmCommunication;
+using GsmComm.PduConverter;
 
 namespace EQRSWin
 {
@@ -18,11 +20,17 @@ namespace EQRSWin
         }
 
         private Regex rgx;
+        private GsmCommMain _mainComm;
 
         public SMSRouter()
         {
             // ResponderCode::EmergencyDetails::Latitude::Longitude::PhoneNumber
             rgx = new Regex(@"([A-Za-z]+)::([A-Za-z\s]+)::([0-9]+\.?[0-9]+)::([0-9]+\.?[0-9]+)::([0-9]+)");
+        }
+
+        public SMSRouter(GsmComm.GsmCommunication.GsmCommMain mainComm) : this()
+        {
+            _mainComm = mainComm;
         }
 
         /// <summary>
@@ -47,6 +55,11 @@ namespace EQRSWin
             {
                 return null;
             }
+        }
+
+        public void HandleReceived(string originatingAddress, DateTime sCTimestamp, string userDataText)
+        {
+            
         }
     }
 }

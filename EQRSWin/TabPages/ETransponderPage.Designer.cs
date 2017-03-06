@@ -1,6 +1,6 @@
 ﻿namespace EQRSWin.TabPages
 {
-    partial class SettingsPage
+    partial class ETransponderPage
     {
         /// <summary> 
         /// Required designer variable.

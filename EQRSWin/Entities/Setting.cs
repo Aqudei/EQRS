@@ -5,6 +5,9 @@ using System.Text;
 
 namespace EQRSWin.Entities
 {
+    /// <summary>
+    /// Holds the  setting for the GSM modem.
+    /// </summary>
     public class Setting
     {
         public int SettingId { get; set; }
