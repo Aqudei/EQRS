@@ -68,7 +68,13 @@ namespace EQRSWin
                     var responder = ctx.Responders.Where(r => r.ResponderCode == er.ResponderCode).FirstOrDefault();
                     if (responder != null)
                     {
-                        Debug.WriteLine("Sending message to responder " + responder.ToString());
+                        if (_mainComm != null && _mainComm.IsConnected())
+                        {
+                            Debug.WriteLine("Sending message to responder " + responder.ToString());
+                            var msg = string.Format("Emergency:{0}\nWhere: lat {1} long {2}", er.EmergencyDetail, er.Latitude, er.Longitude);
+                            SmsSubmitPdu pdu = new SmsSubmitPdu(msg, responder.MobileNumber);
+                            _mainComm.SendMessage(pdu);
+                        }
                     }
                 }
             }

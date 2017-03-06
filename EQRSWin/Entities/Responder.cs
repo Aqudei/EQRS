@@ -14,7 +14,7 @@ namespace EQRSWin
 
         public override string ToString()
         {
-            return ResponderId + " : " + ResponderName + " : " + MobileNumber;
+            return ResponderName + " : " + MobileNumber;
         }
     }
 }
