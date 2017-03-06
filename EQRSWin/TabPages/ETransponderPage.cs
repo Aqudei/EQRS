@@ -13,7 +13,7 @@ namespace EQRSWin.TabPages
 {
     public partial class ETransponderPage : MetroFramework.Controls.MetroUserControl
     {
-        SMSRouter smsRouter;
+        SMSRouter smsRouter = null;
         private delegate void SetTextCallback(string text);
         private GsmComm.GsmCommunication.GsmCommMain commMain;
         public ETransponderPage()
@@ -115,8 +115,10 @@ namespace EQRSWin.TabPages
                     var setting = ctx.Settings.FirstOrDefault();
 
                     commMain = new GsmCommMain(setting.PortName, setting.BaudRate, 6000);
+                    smsRouter = new SMSRouter(commMain);
                     commMain.EnableMessageNotifications();
                     commMain.MessageReceived += Phone_MessageReceived;
+
                     commMain.Open();
                     FindForm().FormClosing += ETransponderPage_FormClosing;
                 }
