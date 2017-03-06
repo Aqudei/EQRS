@@ -115,12 +115,11 @@ namespace EQRSWin.TabPages
                     var setting = ctx.Settings.FirstOrDefault();
 
                     commMain = new GsmCommMain(setting.PortName, setting.BaudRate, 6000);
-                    //smsRouter = new SMSRouter(commMain);
-                    commMain.Open();
+                    smsRouter = new SMSRouter(commMain);
                     commMain.EnableMessageNotifications();
                     commMain.MessageReceived += Phone_MessageReceived;
 
-                    
+                    commMain.Open();
                     FindForm().FormClosing += ETransponderPage_FormClosing;
                 }
 
@@ -145,8 +144,15 @@ namespace EQRSWin.TabPages
                         loc.Storage, loc.Index));
 
                     var msg = commMain.ReadMessage(loc.Index, loc.Storage);
-                    ShowMessage(msg.Data);
-                    return;
+
+                    if (msg.Data is SmsDeliverPdu)
+                    {
+                        // Received message
+                        SmsDeliverPdu data = (SmsDeliverPdu)msg.Data;
+                        smsRouter.HandleReceived(data.OriginatingAddress, data.SCTimestamp.ToDateTime(), data.UserDataText);
+                        ShowMessage(msg.Data);
+                        return;
+                    }
                 }
 
                 if (obj is ShortMessage)
