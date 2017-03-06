@@ -1,5 +1,6 @@
 namespace EQRSWin
 {
+    using Entities;
     using System;
     using System.Data.Entity;
     using System.Linq;
@@ -28,6 +29,8 @@ namespace EQRSWin
         }
 
         public virtual DbSet<Responder> Responders { get; set; }
+        public virtual DbSet<Setting> Settings { get; set; }
+
     }
 
     //public class MyEntity
