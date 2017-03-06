@@ -46,19 +46,32 @@ namespace EQRSWin.TabPages
 
         private void SaveMetroButton_Click(object sender, EventArgs e)
         {
-            using (var ctx = new EQRSContext())
+            try
             {
-                var setting = ctx.Settings.FirstOrDefault();
-                if (setting == null)
+                using (var ctx = new EQRSContext())
                 {
-                    setting = new Entities.Setting();
-                    ctx.Settings.Add(setting);
+                    var setting = ctx.Settings.FirstOrDefault();
+                    if (setting == null)
+                    {
+                        setting = new Entities.Setting();
+                        ctx.Settings.Add(setting);
+                    }
+
+                    setting.PortName = PortNameMetroComboBox.Text;
+                    setting.BaudRate = int.Parse(BaudRateMetroComboBox.Text);
+
+                    ctx.SaveChanges();
                 }
 
-                setting.PortName = PortNameMetroComboBox.Text;
-                setting.BaudRate = int.Parse(BaudRateMetroComboBox.Text);
-
-                ctx.SaveChanges();
+                var anser = MetroFramework.MetroMessageBox.Show(this, "Settings updated.\nYou need to restart the app for the settings to take effect.\n\nDo you want to restart now?", "Restart Required", MessageBoxButtons.YesNo);
+                if (anser == DialogResult.Yes)
+                {
+                    Application.Restart();
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowException(ex);
             }
         }
 
@@ -95,8 +108,9 @@ namespace EQRSWin.TabPages
                 {
                     var setting = ctx.Settings.FirstOrDefault();
 
-                    commMain = new GsmComm.GsmCommunication.GsmCommMain(setting.PortName, setting.BaudRate, 6000);
+                    commMain = new GsmCommMain(setting.PortName, setting.BaudRate, 6000);
                     commMain.Open();
+                    commMain.EnableMessageNotifications();
                     commMain.MessageReceived += Phone_MessageReceived;
                 }
 

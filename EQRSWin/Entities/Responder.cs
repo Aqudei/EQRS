@@ -9,7 +9,12 @@ namespace EQRSWin
     {
         public long ResponderId { get; set; }
         public string ResponderName { get; set; }
-        public string ResponderCode{ get; set; }
+        public string ResponderCode { get; set; }
         public string MobileNumber { get; set; }
+
+        public override string ToString()
+        {
+            return ResponderId + " : " + ResponderName + " : " + MobileNumber;
+        }
     }
 }

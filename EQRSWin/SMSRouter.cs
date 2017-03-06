@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using GsmComm.GsmCommunication;
 using GsmComm.PduConverter;
+using System.Diagnostics;
 
 namespace EQRSWin
 {
@@ -59,7 +60,18 @@ namespace EQRSWin
 
         public void HandleReceived(string originatingAddress, DateTime sCTimestamp, string userDataText)
         {
-            
+            var er = Parse(userDataText);
+            if (er != null)
+            {
+                using (var ctx = new EQRSContext())
+                {
+                    var responder = ctx.Responders.Where(r => r.ResponderCode == er.ResponderCode).FirstOrDefault();
+                    if (responder != null)
+                    {
+                        Debug.WriteLine("Sending message to responder " + responder.ToString());
+                    }
+                }
+            }
         }
     }
 }
