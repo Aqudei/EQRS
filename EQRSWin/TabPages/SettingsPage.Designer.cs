@@ -35,6 +35,7 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.PortNameMetroComboBox = new MetroFramework.Controls.MetroComboBox();
             this.BaudRateMetroComboBox = new MetroFramework.Controls.MetroComboBox();
+            this.LogMetroTextBox = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -67,11 +68,11 @@
             // 
             // SwitchMetroButton
             // 
-            this.SwitchMetroButton.Location = new System.Drawing.Point(254, 186);
+            this.SwitchMetroButton.Location = new System.Drawing.Point(226, 186);
             this.SwitchMetroButton.Name = "SwitchMetroButton";
-            this.SwitchMetroButton.Size = new System.Drawing.Size(95, 23);
+            this.SwitchMetroButton.Size = new System.Drawing.Size(123, 23);
             this.SwitchMetroButton.TabIndex = 6;
-            this.SwitchMetroButton.Text = "Connect";
+            this.SwitchMetroButton.Text = "Try Connect";
             this.SwitchMetroButton.UseSelectable = true;
             this.SwitchMetroButton.Click += new System.EventHandler(this.SwitchMetroButton_Click);
             // 
@@ -123,10 +124,47 @@
             this.BaudRateMetroComboBox.TabIndex = 9;
             this.BaudRateMetroComboBox.UseSelectable = true;
             // 
+            // LogMetroTextBox
+            // 
+            this.LogMetroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.LogMetroTextBox.CustomButton.Image = null;
+            this.LogMetroTextBox.CustomButton.Location = new System.Drawing.Point(374, 2);
+            this.LogMetroTextBox.CustomButton.Name = "";
+            this.LogMetroTextBox.CustomButton.Size = new System.Drawing.Size(75, 75);
+            this.LogMetroTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.LogMetroTextBox.CustomButton.TabIndex = 1;
+            this.LogMetroTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.LogMetroTextBox.CustomButton.UseSelectable = true;
+            this.LogMetroTextBox.CustomButton.Visible = false;
+            this.LogMetroTextBox.Lines = new string[] {
+        "metroTextBox1"};
+            this.LogMetroTextBox.Location = new System.Drawing.Point(10, 215);
+            this.LogMetroTextBox.MaxLength = 32767;
+            this.LogMetroTextBox.Multiline = true;
+            this.LogMetroTextBox.Name = "LogMetroTextBox";
+            this.LogMetroTextBox.PasswordChar = '\0';
+            this.LogMetroTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.LogMetroTextBox.SelectedText = "";
+            this.LogMetroTextBox.SelectionLength = 0;
+            this.LogMetroTextBox.SelectionStart = 0;
+            this.LogMetroTextBox.ShortcutsEnabled = true;
+            this.LogMetroTextBox.Size = new System.Drawing.Size(452, 80);
+            this.LogMetroTextBox.TabIndex = 10;
+            this.LogMetroTextBox.Text = "metroTextBox1";
+            this.LogMetroTextBox.UseSelectable = true;
+            this.LogMetroTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.LogMetroTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // SettingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LogMetroTextBox);
             this.Controls.Add(this.BaudRateMetroComboBox);
             this.Controls.Add(this.PortNameMetroComboBox);
             this.Controls.Add(this.metroLabel3);
@@ -151,5 +189,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroComboBox PortNameMetroComboBox;
         private MetroFramework.Controls.MetroComboBox BaudRateMetroComboBox;
+        private MetroFramework.Controls.MetroTextBox LogMetroTextBox;
     }
 }

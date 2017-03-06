@@ -6,13 +6,15 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GsmComm.GsmCommunication;
+using GsmComm.PduConverter;
 
 namespace EQRSWin.TabPages
 {
     public partial class SettingsPage : MetroFramework.Controls.MetroUserControl
     {
-
-        GsmComm.GsmCommunication.GsmPhone phone;
+        private delegate void SetTextCallback(string text);
+        private GsmComm.GsmCommunication.GsmCommMain commMain;
         public SettingsPage()
         {
             InitializeComponent();
@@ -59,9 +61,28 @@ namespace EQRSWin.TabPages
             }
         }
 
+        public void Disconnect()
+        {
+            try
+            {
+                if (commMain != null && commMain.IsConnected())
+                {
+                    commMain.MessageReceived -= Phone_MessageReceived;
+                    commMain.Close();
+                }
+                commMain = null;
+            }
+            catch (Exception ex)
+            {
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Modem Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
         private void SwitchMetroButton_Click(object sender, EventArgs e)
         {
-            if (phone != null && phone.IsConnected())
+            if (commMain != null && commMain.IsConnected())
             {
                 MetroFramework.MetroMessageBox.Show(this, "Phone already connected.");
                 return;
@@ -73,23 +94,111 @@ namespace EQRSWin.TabPages
                 {
                     var setting = ctx.Settings.FirstOrDefault();
 
-                    phone = new GsmComm.GsmCommunication.GsmPhone(setting.PortName, setting.BaudRate, 6000);
-                    phone.Open();
-                    phone.MessageReceived += Phone_MessageReceived;
+                    commMain = new GsmComm.GsmCommunication.GsmCommMain(setting.PortName, setting.BaudRate, 6000);
+                    commMain.Open();
+                    commMain.MessageReceived += Phone_MessageReceived;
                 }
+
+                MetroFramework.MetroMessageBox.Show(this, "Phone successfully connected.");
             }
             catch (Exception ex)
             {
-
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Modem Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowException(ex);
             }
 
         }
 
         private void Phone_MessageReceived(object sender, GsmComm.GsmCommunication.MessageReceivedEventArgs e)
         {
+            try
+            {
+                IMessageIndicationObject obj = e.IndicationObject;
+                //if (obj is MemoryLocation)
+                //{
+                //    MemoryLocation loc = (MemoryLocation)obj;
+                //    Output(string.Format("New message received in storage \"{0}\", index {1}.",
+                //        loc.Storage, loc.Index));
+                //    Output("");
+                //    return;
+                //}
+                if (obj is ShortMessage)
+                {
+                    ShortMessage msg = (ShortMessage)obj;
+                    SmsPdu pdu = commMain.DecodeReceivedMessage(msg);
+                    Output("New message received:");
+                    ShowMessage(pdu);
+                    return;
+                }
+                else
+                {
 
+                }
+                //Output("Error: Unknown notification object!");
+            }
+            catch (Exception ex)
+            {
+                ShowException(ex);
+            }
+        }
+
+        private void ShowException(Exception ex)
+        {
+            MetroFramework.MetroMessageBox.Show(this, ex.Message, "Modem Error",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void Output(string text)
+        {
+            if (this.LogMetroTextBox.InvokeRequired)
+            {
+                SetTextCallback stc = new SetTextCallback(Output);
+                this.Invoke(stc, new object[] { text });
+            }
+            else
+            {
+                LogMetroTextBox.AppendText(text);
+                LogMetroTextBox.AppendText("\r\n");
+            }
+        }
+
+
+
+        private void ShowMessage(SmsPdu pdu)
+        {
+            if (pdu is SmsSubmitPdu)
+            {
+                // Stored (sent/unsent) message
+                SmsSubmitPdu data = (SmsSubmitPdu)pdu;
+                Output("SENT/UNSENT MESSAGE");
+                Output("Recipient: " + data.DestinationAddress);
+                Output("Message text: " + data.UserDataText);
+                Output("-------------------------------------------------------------------");
+                return;
+            }
+            if (pdu is SmsDeliverPdu)
+            {
+                // Received message
+                SmsDeliverPdu data = (SmsDeliverPdu)pdu;
+                Output("RECEIVED MESSAGE");
+                Output("Sender: " + data.OriginatingAddress);
+                Output("Sent: " + data.SCTimestamp.ToString());
+                Output("Message text: " + data.UserDataText);
+                Output("-------------------------------------------------------------------");
+                return;
+            }
+            if (pdu is SmsStatusReportPdu)
+            {
+                // Status report
+                SmsStatusReportPdu data = (SmsStatusReportPdu)pdu;
+                Output("STATUS REPORT");
+                Output("Recipient: " + data.RecipientAddress);
+                Output("Status: " + data.Status.ToString());
+                Output("Timestamp: " + data.DischargeTime.ToString());
+                Output("Message ref: " + data.MessageReference.ToString());
+                Output("-------------------------------------------------------------------");
+                return;
+            }
+            Output("Unknown message type: " + pdu.GetType().ToString());
         }
     }
 }
