@@ -24,7 +24,6 @@ namespace EQRSWin.TabPages
             if (DesignMode == false)
             {
                 LoadSettings();
-                FindForm().FormClosing += ETransponderPage_FormClosing;
             }
         }
 
@@ -119,6 +118,7 @@ namespace EQRSWin.TabPages
                     commMain.Open();
                     commMain.EnableMessageNotifications();
                     commMain.MessageReceived += Phone_MessageReceived;
+                    FindForm().FormClosing += ETransponderPage_FormClosing;
                 }
 
                 MetroFramework.MetroMessageBox.Show(this, "Phone successfully connected.");
