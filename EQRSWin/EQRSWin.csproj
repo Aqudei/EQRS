@@ -152,7 +152,9 @@
     <EmbeddedResource Include="TabPages\ETransponderPage.resx">
       <DependentUpon>ETransponderPage.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Responder.datasource" />
     <None Include="Properties\Settings.settings">
