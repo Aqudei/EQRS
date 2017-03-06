@@ -115,9 +115,9 @@ namespace EQRSWin.TabPages
                     var setting = ctx.Settings.FirstOrDefault();
 
                     commMain = new GsmCommMain(setting.PortName, setting.BaudRate, 6000);
-                    commMain.Open();
                     commMain.EnableMessageNotifications();
                     commMain.MessageReceived += Phone_MessageReceived;
+                    commMain.Open();
                     FindForm().FormClosing += ETransponderPage_FormClosing;
                 }
 
@@ -135,14 +135,17 @@ namespace EQRSWin.TabPages
             try
             {
                 IMessageIndicationObject obj = e.IndicationObject;
-                //if (obj is MemoryLocation)
-                //{
-                //    MemoryLocation loc = (MemoryLocation)obj;
-                //    Output(string.Format("New message received in storage \"{0}\", index {1}.",
-                //        loc.Storage, loc.Index));
-                //    Output("");
-                //    return;
-                //}
+                if (obj is MemoryLocation)
+                {
+                    MemoryLocation loc = (MemoryLocation)obj;
+                    Output(string.Format("New message received in storage \"{0}\", index {1}.",
+                        loc.Storage, loc.Index));
+
+                    var msg = commMain.ReadMessage(loc.Index, loc.Storage);
+                    ShowMessage(msg.Data);
+                    return;
+                }
+
                 if (obj is ShortMessage)
                 {
                     ShortMessage msg = (ShortMessage)obj;
