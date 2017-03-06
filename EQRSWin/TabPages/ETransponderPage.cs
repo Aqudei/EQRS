@@ -144,7 +144,7 @@ namespace EQRSWin.TabPages
                         loc.Storage, loc.Index));
 
                     var msg = commMain.ReadMessage(loc.Index, loc.Storage);
-
+                    commMain.DeleteMessage(loc.Index, loc.Storage);
                     if (msg.Data is SmsDeliverPdu)
                     {
                         // Received message
