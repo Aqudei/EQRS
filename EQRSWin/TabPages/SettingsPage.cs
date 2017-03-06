@@ -61,15 +61,30 @@ namespace EQRSWin.TabPages
 
         private void SwitchMetroButton_Click(object sender, EventArgs e)
         {
-
-            using (var ctx = new EQRSContext())
+            if (phone != null && phone.IsConnected())
             {
-                var setting = ctx.Settings.FirstOrDefault();
-
-                phone = new GsmComm.GsmCommunication.GsmPhone(setting.PortName, setting.BaudRate, 6000);
-                phone.Open();
-                phone.MessageReceived += Phone_MessageReceived;
+                MetroFramework.MetroMessageBox.Show(this, "Phone already connected.");
+                return;
             }
+
+            try
+            {
+                using (var ctx = new EQRSContext())
+                {
+                    var setting = ctx.Settings.FirstOrDefault();
+
+                    phone = new GsmComm.GsmCommunication.GsmPhone(setting.PortName, setting.BaudRate, 6000);
+                    phone.Open();
+                    phone.MessageReceived += Phone_MessageReceived;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Modem Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void Phone_MessageReceived(object sender, GsmComm.GsmCommunication.MessageReceivedEventArgs e)
