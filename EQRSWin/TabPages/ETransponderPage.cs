@@ -116,10 +116,9 @@ namespace EQRSWin.TabPages
 
                     commMain = new GsmCommMain(setting.PortName, setting.BaudRate, 6000);
                     smsRouter = new SMSRouter(commMain);
-                    commMain.EnableMessageNotifications();
-                    commMain.MessageReceived += Phone_MessageReceived;
-
                     commMain.Open();
+                    commMain.EnableMessageNotifications();
+                    commMain.MessageReceived += Phone_MessageReceived;                    
                     FindForm().FormClosing += ETransponderPage_FormClosing;
                 }
 
