@@ -78,10 +78,12 @@
             // 
             // metroLabel3
             // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(22, 52);
+            this.metroLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.metroLabel3.Location = new System.Drawing.Point(10, 52);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(105, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(462, 19);
             this.metroLabel3.TabIndex = 7;
             this.metroLabel3.Text = "Modem Settings";
             // 
@@ -141,13 +143,13 @@
             this.LogMetroTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.LogMetroTextBox.CustomButton.UseSelectable = true;
             this.LogMetroTextBox.CustomButton.Visible = false;
-            this.LogMetroTextBox.Lines = new string[] {
-        "metroTextBox1"};
+            this.LogMetroTextBox.Lines = new string[0];
             this.LogMetroTextBox.Location = new System.Drawing.Point(10, 215);
             this.LogMetroTextBox.MaxLength = 32767;
             this.LogMetroTextBox.Multiline = true;
             this.LogMetroTextBox.Name = "LogMetroTextBox";
             this.LogMetroTextBox.PasswordChar = '\0';
+            this.LogMetroTextBox.PromptText = "[Activity log goes here.]";
             this.LogMetroTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.LogMetroTextBox.SelectedText = "";
             this.LogMetroTextBox.SelectionLength = 0;
@@ -155,8 +157,8 @@
             this.LogMetroTextBox.ShortcutsEnabled = true;
             this.LogMetroTextBox.Size = new System.Drawing.Size(452, 80);
             this.LogMetroTextBox.TabIndex = 10;
-            this.LogMetroTextBox.Text = "metroTextBox1";
             this.LogMetroTextBox.UseSelectable = true;
+            this.LogMetroTextBox.WaterMark = "[Activity log goes here.]";
             this.LogMetroTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.LogMetroTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 

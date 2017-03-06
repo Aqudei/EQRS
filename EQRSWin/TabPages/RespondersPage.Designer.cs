@@ -32,27 +32,27 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.SaveAllMetroLink = new MetroFramework.Controls.MetroLink();
-            this.DeleteResponderMetroLink = new MetroFramework.Controls.MetroLink();
+            this.RepondersGrid = new MetroFramework.Controls.MetroGrid();
             this.responderNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.responderCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobileNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.responderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.SaveAllMetroLink = new MetroFramework.Controls.MetroLink();
+            this.DeleteResponderMetroLink = new MetroFramework.Controls.MetroLink();
+            ((System.ComponentModel.ISupportInitialize)(this.RepondersGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.responderBindingSource)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroGrid2
             // 
-            this.metroGrid2.AllowUserToResizeRows = false;
-            this.metroGrid2.AutoGenerateColumns = false;
-            this.metroGrid2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.RepondersGrid.AllowUserToResizeRows = false;
+            this.RepondersGrid.AutoGenerateColumns = false;
+            this.RepondersGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.RepondersGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RepondersGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.RepondersGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -60,13 +60,13 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.metroGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.metroGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RepondersGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.RepondersGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RepondersGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.responderNameDataGridViewTextBoxColumn,
             this.responderCodeDataGridViewTextBoxColumn,
             this.mobileNumberDataGridViewTextBoxColumn});
-            this.metroGrid2.DataSource = this.responderBindingSource;
+            this.RepondersGrid.DataSource = this.responderBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -74,14 +74,14 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.metroGrid2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroGrid2.EnableHeadersVisualStyles = false;
-            this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid2.Location = new System.Drawing.Point(10, 10);
-            this.metroGrid2.Name = "metroGrid2";
-            this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.RepondersGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.RepondersGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RepondersGrid.EnableHeadersVisualStyles = false;
+            this.RepondersGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.RepondersGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.RepondersGrid.Location = new System.Drawing.Point(10, 10);
+            this.RepondersGrid.Name = "metroGrid2";
+            this.RepondersGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -89,11 +89,36 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid2.Size = new System.Drawing.Size(470, 241);
-            this.metroGrid2.TabIndex = 1;
+            this.RepondersGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.RepondersGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.RepondersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.RepondersGrid.Size = new System.Drawing.Size(470, 241);
+            this.RepondersGrid.TabIndex = 1;
+            this.RepondersGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.respondersMetroGrid_CellEndEdit);
+            // 
+            // responderNameDataGridViewTextBoxColumn
+            // 
+            this.responderNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.responderNameDataGridViewTextBoxColumn.DataPropertyName = "ResponderName";
+            this.responderNameDataGridViewTextBoxColumn.HeaderText = "Responder Name";
+            this.responderNameDataGridViewTextBoxColumn.Name = "responderNameDataGridViewTextBoxColumn";
+            // 
+            // responderCodeDataGridViewTextBoxColumn
+            // 
+            this.responderCodeDataGridViewTextBoxColumn.DataPropertyName = "ResponderCode";
+            this.responderCodeDataGridViewTextBoxColumn.HeaderText = "Responder Code";
+            this.responderCodeDataGridViewTextBoxColumn.Name = "responderCodeDataGridViewTextBoxColumn";
+            this.responderCodeDataGridViewTextBoxColumn.Width = 249;
+            // 
+            // mobileNumberDataGridViewTextBoxColumn
+            // 
+            this.mobileNumberDataGridViewTextBoxColumn.DataPropertyName = "MobileNumber";
+            this.mobileNumberDataGridViewTextBoxColumn.HeaderText = "Mobile Number";
+            this.mobileNumberDataGridViewTextBoxColumn.Name = "mobileNumberDataGridViewTextBoxColumn";
+            // 
+            // responderBindingSource
+            // 
+            this.responderBindingSource.DataSource = typeof(EQRSWin.Responder);
             // 
             // flowLayoutPanel1
             // 
@@ -124,48 +149,24 @@
             this.DeleteResponderMetroLink.Text = "Delete";
             this.DeleteResponderMetroLink.UseSelectable = true;
             // 
-            // responderNameDataGridViewTextBoxColumn
-            // 
-            this.responderNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.responderNameDataGridViewTextBoxColumn.DataPropertyName = "ResponderName";
-            this.responderNameDataGridViewTextBoxColumn.HeaderText = "Responder Name";
-            this.responderNameDataGridViewTextBoxColumn.Name = "responderNameDataGridViewTextBoxColumn";
-            // 
-            // responderCodeDataGridViewTextBoxColumn
-            // 
-            this.responderCodeDataGridViewTextBoxColumn.DataPropertyName = "ResponderCode";
-            this.responderCodeDataGridViewTextBoxColumn.HeaderText = "Responder Code";
-            this.responderCodeDataGridViewTextBoxColumn.Name = "responderCodeDataGridViewTextBoxColumn";
-            this.responderCodeDataGridViewTextBoxColumn.Width = 249;
-            // 
-            // mobileNumberDataGridViewTextBoxColumn
-            // 
-            this.mobileNumberDataGridViewTextBoxColumn.DataPropertyName = "MobileNumber";
-            this.mobileNumberDataGridViewTextBoxColumn.HeaderText = "Mobile Number";
-            this.mobileNumberDataGridViewTextBoxColumn.Name = "mobileNumberDataGridViewTextBoxColumn";
-            // 
-            // responderBindingSource
-            // 
-            this.responderBindingSource.DataSource = typeof(EQRSWin.Responder);
-            // 
             // RespondersPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.metroGrid2);
+            this.Controls.Add(this.RepondersGrid);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "RespondersPage";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Size = new System.Drawing.Size(490, 291);
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RepondersGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.responderBindingSource)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private MetroFramework.Controls.MetroGrid metroGrid2;
+        private MetroFramework.Controls.MetroGrid RepondersGrid;
         private System.Windows.Forms.BindingSource responderBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn responderNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn responderCodeDataGridViewTextBoxColumn;

@@ -49,5 +49,11 @@ namespace EQRSWin.TabPages
                 ctx.SaveChanges();
             }
         }
+
+        private void respondersMetroGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            RepondersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = RepondersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex]
+                .Value.ToString().ToUpper();
+        }
     }
 }
