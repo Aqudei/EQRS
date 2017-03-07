@@ -109,9 +109,10 @@ namespace EQRSWin.TabPages
                     var setting = ctx.Settings.FirstOrDefault();
 
                     commMain = new GsmCommMain(setting.PortName, setting.BaudRate, 6000);
-                    commMain.Open();
                     commMain.EnableMessageNotifications();
                     commMain.MessageReceived += Phone_MessageReceived;
+                    commMain.Open();
+
                 }
 
                 MetroFramework.MetroMessageBox.Show(this, "Phone successfully connected.");
