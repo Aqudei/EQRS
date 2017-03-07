@@ -114,7 +114,7 @@ namespace EQRSWin.TabPages
                 {
                     var setting = ctx.Settings.FirstOrDefault();
 
-                    commMain = new GsmCommMain(setting.PortName, setting.BaudRate, 6000);
+                    commMain = new GsmCommMain(setting.PortName, setting.BaudRate, 500);
                     smsRouter = new SMSRouter(commMain);
                     commMain.Open();
                     commMain.EnableMessageNotifications();

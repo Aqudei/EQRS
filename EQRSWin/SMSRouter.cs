@@ -16,7 +16,6 @@ namespace EQRSWin
             public string EmergencyDetail { get; internal set; }
             public double Latitude { get; internal set; }
             public double Longitude { get; internal set; }
-            public string PhoneNumber { get; internal set; }
             public string ResponderCode { get; internal set; }
         }
 
@@ -26,7 +25,7 @@ namespace EQRSWin
         public SMSRouter()
         {
             // ResponderCode::EmergencyDetails::Latitude::Longitude::PhoneNumber
-            rgx = new Regex(@"([A-Za-z]+)::([A-Za-z\s]+)::([0-9]+\.?[0-9]+)::([0-9]+\.?[0-9]+)::([0-9]+)");
+            rgx = new Regex(@"([A-Za-z]+)::([A-Za-z\s]+)::([0-9]+\.?[0-9]+)::([0-9]+\.?[0-9]+)");
         }
 
         public SMSRouter(GsmComm.GsmCommunication.GsmCommMain mainComm) : this()
@@ -49,7 +48,6 @@ namespace EQRSWin
                 er.EmergencyDetail = rslt.Groups[2].Value.ToUpper();
                 er.Latitude = double.Parse(rslt.Groups[3].Value);
                 er.Longitude = double.Parse(rslt.Groups[4].Value);
-                er.PhoneNumber = rslt.Groups[5].Value.ToUpper();
                 return er;
             }
             else

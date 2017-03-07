@@ -17,7 +17,6 @@ namespace DeleteLaterTest
             Assert.IsTrue(wat.EmergencyDetail == "MURDER");
             Assert.IsTrue(wat.Latitude == 101.12);
             Assert.IsTrue(wat.Longitude == 86.32);
-            Assert.IsTrue(wat.PhoneNumber == "01234567890");
         }
     }
 }
