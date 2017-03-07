@@ -20,10 +20,17 @@ namespace EQRSWin.TabPages
         {
             InitializeComponent();
 
+
             if (DesignMode == false)
             {
                 LoadSettings();
+                FindForm().FormClosing += ETransponderPage_FormClosing;
             }
+        }
+
+        private void ETransponderPage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Disconnect();
         }
 
         private void LoadSettings()
