@@ -13,9 +13,10 @@ namespace EQRSWin.TabPages
 {
     public partial class ETransponderPage : MetroFramework.Controls.MetroUserControl
     {
-        SMSRouter smsRouter = null;
+        private SMSRouter smsRouter = null;
         private delegate void SetTextCallback(string text);
-        private GsmComm.GsmCommunication.GsmCommMain commMain;
+        private GsmCommMain commMain;
+
         public ETransponderPage()
         {
             InitializeComponent();
@@ -43,11 +44,6 @@ namespace EQRSWin.TabPages
                     BaudRateMetroComboBox.Text = setting.BaudRate.ToString();
                 }
             }
-        }
-
-        private void metroTextBox2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void SaveMetroButton_Click(object sender, EventArgs e)
@@ -87,9 +83,12 @@ namespace EQRSWin.TabPages
             {
                 if (commMain != null && commMain.IsConnected())
                 {
+                    smsRouter.NewEmergencyEvent -= SmsRouter_NewEmergencyEvent;
                     commMain.MessageReceived -= Phone_MessageReceived;
                     commMain.Close();
                 }
+
+                smsRouter = null;
                 commMain = null;
             }
             catch (Exception ex)
@@ -118,8 +117,9 @@ namespace EQRSWin.TabPages
                     smsRouter = new SMSRouter(commMain);
                     commMain.Open();
                     commMain.EnableMessageNotifications();
-                    commMain.MessageReceived += Phone_MessageReceived;                    
+                    commMain.MessageReceived += Phone_MessageReceived;
                     FindForm().FormClosing += ETransponderPage_FormClosing;
+                    smsRouter.NewEmergencyEvent += SmsRouter_NewEmergencyEvent;
                 }
 
                 MetroFramework.MetroMessageBox.Show(this, "Phone successfully connected.");
@@ -128,7 +128,15 @@ namespace EQRSWin.TabPages
             {
                 ShowException(ex);
             }
+        }
 
+        private void SmsRouter_NewEmergencyEvent(object sender, NewEmergencyEventArg e)
+        {
+            using (var ctx = new EQRSContext())
+            {
+                ctx.NewEmergencyEventArgs.Add(e);
+                ctx.SaveChangesAsync();
+            }
         }
 
         private void Phone_MessageReceived(object sender, GsmComm.GsmCommunication.MessageReceivedEventArgs e)

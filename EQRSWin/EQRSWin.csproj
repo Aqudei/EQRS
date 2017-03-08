@@ -86,6 +86,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmergencyRequest\EmergencyRequest.cs" />
+    <Compile Include="EmergencyRequest\NewEmergencyEventArg.cs" />
     <Compile Include="DataAccess\SettingDao.cs" />
     <Compile Include="Entities\Setting.cs" />
     <Compile Include="EQRSContext.cs" />
@@ -106,6 +108,14 @@
     <Compile Include="Migrations\201703060726448_changeVariableType.cs" />
     <Compile Include="Migrations\201703060726448_changeVariableType.Designer.cs">
       <DependentUpon>201703060726448_changeVariableType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703080408529_s.cs" />
+    <Compile Include="Migrations\201703080408529_s.Designer.cs">
+      <DependentUpon>201703080408529_s.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703080446034_reqToDb.cs" />
+    <Compile Include="Migrations\201703080446034_reqToDb.Designer.cs">
+      <DependentUpon>201703080446034_reqToDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -135,6 +145,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703060726448_changeVariableType.resx">
       <DependentUpon>201703060726448_changeVariableType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703080408529_s.resx">
+      <DependentUpon>201703080408529_s.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703080446034_reqToDb.resx">
+      <DependentUpon>201703080446034_reqToDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

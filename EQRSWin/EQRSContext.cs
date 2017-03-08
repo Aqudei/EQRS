@@ -1,6 +1,7 @@
 namespace EQRSWin
 {
     using Entities;
+    using EQRSWin;
     using System;
     using System.Data.Entity;
     using System.Linq;
@@ -24,13 +25,16 @@ namespace EQRSWin
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Responder>().HasKey(k => k.ResponderId);
+            modelBuilder.Entity<NewEmergencyEventArg>().HasKey(k => k.NewEmergencyEventArgId);
             modelBuilder.Entity<Responder>().Property(p => p.ResponderId).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
+
         }
 
         public virtual DbSet<Responder> Responders { get; set; }
         public virtual DbSet<Setting> Settings { get; set; }
-
+        public virtual DbSet<NewEmergencyEventArg> NewEmergencyEventArgs { get; set; }
     }
 
     //public class MyEntity

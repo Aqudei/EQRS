@@ -6,18 +6,13 @@ using System.Text.RegularExpressions;
 using GsmComm.GsmCommunication;
 using GsmComm.PduConverter;
 using System.Diagnostics;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EQRSWin
 {
     public class SMSRouter
     {
-        public class EmergencyRequest
-        {
-            public string EmergencyDetail { get; internal set; }
-            public double Latitude { get; internal set; }
-            public double Longitude { get; internal set; }
-            public string ResponderCode { get; internal set; }
-        }
+        public event EventHandler<NewEmergencyEventArg> NewEmergencyEvent;
 
         private Regex rgx;
         private GsmCommMain _mainComm;
@@ -72,6 +67,12 @@ namespace EQRSWin
                             var msg = string.Format("Emergency:{0}\nWhere: lat {1} long {2}", er.EmergencyDetail, er.Latitude, er.Longitude);
                             SmsSubmitPdu pdu = new SmsSubmitPdu(msg, responder.MobileNumber);
                             _mainComm.SendMessage(pdu);
+
+                            NewEmergencyEvent?.Invoke(this, new NewEmergencyEventArg
+                            {
+                                Request = er,
+                                Time = sCTimestamp
+                            });
                         }
                     }
                 }
