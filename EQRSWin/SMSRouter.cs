@@ -56,6 +56,7 @@ namespace EQRSWin
             var er = Parse(userDataText);
             if (er != null)
             {
+
                 using (var ctx = new EQRSContext())
                 {
                     var responder = ctx.Responders.Where(r => r.ResponderCode == er.ResponderCode).FirstOrDefault();
@@ -67,7 +68,7 @@ namespace EQRSWin
                             var msg = string.Format("Emergency:{0}\nWhere: lat {1} long {2}", er.EmergencyDetail, er.Latitude, er.Longitude);
                             SmsSubmitPdu pdu = new SmsSubmitPdu(msg, responder.MobileNumber);
                             _mainComm.SendMessage(pdu);
-
+                            er.MobileNumber = originatingAddress;
                             NewEmergencyEvent?.Invoke(this, new NewEmergencyEventArg
                             {
                                 Request = er,
