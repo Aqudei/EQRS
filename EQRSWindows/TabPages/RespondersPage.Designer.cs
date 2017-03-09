@@ -124,6 +124,7 @@
             this.DeleteResponderMetroLink.TabIndex = 1;
             this.DeleteResponderMetroLink.Text = "Delete";
             this.DeleteResponderMetroLink.UseSelectable = true;
+            this.DeleteResponderMetroLink.Click += new System.EventHandler(this.DeleteResponderMetroLink_Click);
             // 
             // responderNameDataGridViewTextBoxColumn
             // 

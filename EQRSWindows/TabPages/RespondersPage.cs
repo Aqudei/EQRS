@@ -59,5 +59,31 @@ namespace EQRSWin.TabPages
                 .Value.ToString().ToUpper();
             }
         }
+
+        private void DeleteResponderMetroLink_Click(object sender, EventArgs e)
+        {
+            DeleteSelected();
+        }
+
+        private void DeleteSelected()
+        {
+            if (responderBindingSource.Count > 0)
+
+                using (var ctx = new EQRSContext())
+                {
+                    foreach (DataGridViewRow item in RepondersGrid.SelectedRows)
+                    {
+                        var repo = item.DataBoundItem as Responder;
+                        var found = ctx.Responders.Find(repo.ResponderId);
+                        if (null != found)
+                        {
+                            ctx.Responders.Remove(found);
+                            responderBindingSource.Remove(item.DataBoundItem);
+                        }
+                    }
+                    ctx.SaveChanges();
+                }
+        }
     }
 }
+

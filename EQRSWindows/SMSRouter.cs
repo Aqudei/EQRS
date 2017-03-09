@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.ComponentModel.DataAnnotations.Schema;
 using Geocoding.Google;
 using Geocoding;
+using System.Threading.Tasks;
 
 namespace EQRSWin
 {
@@ -37,7 +38,7 @@ namespace EQRSWin
         /// </summary>
         /// <param name="input">The input sms in the for of ResponderCode::EmergencyDetails::Latitude::Longitude::PhoneNumber</param>
         /// <returns></returns>
-        public EmergencyRequest Parse(string input)
+        public async Task<EmergencyRequest> Parse(string input)
         {
             var rslt = rgx.Match(input);
             if (rslt.Success)
@@ -47,13 +48,18 @@ namespace EQRSWin
                 er.EmergencyDetail = rslt.Groups[2].Value.ToUpper();
                 er.Latitude = double.Parse(rslt.Groups[3].Value);
                 er.Longitude = double.Parse(rslt.Groups[4].Value);
-                er.Address = GetAddress(er.Latitude, er.Longitude);
+                er.Address = await GetAddressAsync(er.Latitude, er.Longitude);
                 return er;
             }
             else
             {
                 return null;
             }
+        }
+
+        private async Task<string> GetAddressAsync(double lat, double longi)
+        {
+            return await Task.Run(() => GetAddress(lat, longi));
         }
 
         private string GetAddress(double lat, double longi)
@@ -70,9 +76,9 @@ namespace EQRSWin
                 return "";
         }
 
-        public void HandleReceived(string originatingAddress, DateTime sCTimestamp, string userDataText)
+        public async void HandleReceived(string originatingAddress, DateTime sCTimestamp, string userDataText)
         {
-            var er = Parse(userDataText);
+            var er = await Parse(userDataText);
             if (er != null)
             {
 

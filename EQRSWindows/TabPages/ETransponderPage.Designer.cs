@@ -80,15 +80,16 @@
             // 
             this.metroLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel3.BackColor = System.Drawing.Color.Black;
+            this.metroLabel3.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel3.ForeColor = System.Drawing.Color.ForestGreen;
-            this.metroLabel3.Location = new System.Drawing.Point(10, 52);
+            this.metroLabel3.ForeColor = System.Drawing.Color.LightGreen;
+            this.metroLabel3.Location = new System.Drawing.Point(10, 42);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(488, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(488, 29);
             this.metroLabel3.TabIndex = 7;
             this.metroLabel3.Text = "Modem Settings";
+            this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.metroLabel3.UseCustomBackColor = true;
             this.metroLabel3.UseCustomForeColor = true;
             // 
@@ -136,7 +137,7 @@
             this.LogMetroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LogMetroTextBox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LogMetroTextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
             // 
             // 
             // 
@@ -149,7 +150,8 @@
             this.LogMetroTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.LogMetroTextBox.CustomButton.UseSelectable = true;
             this.LogMetroTextBox.CustomButton.Visible = false;
-            this.LogMetroTextBox.ForeColor = System.Drawing.Color.ForestGreen;
+            this.LogMetroTextBox.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.LogMetroTextBox.ForeColor = System.Drawing.Color.LightGreen;
             this.LogMetroTextBox.Lines = new string[0];
             this.LogMetroTextBox.Location = new System.Drawing.Point(13, 233);
             this.LogMetroTextBox.MaxLength = 32767;
@@ -157,6 +159,7 @@
             this.LogMetroTextBox.Name = "LogMetroTextBox";
             this.LogMetroTextBox.PasswordChar = '\0';
             this.LogMetroTextBox.PromptText = "[Log goes here]";
+            this.LogMetroTextBox.ReadOnly = true;
             this.LogMetroTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.LogMetroTextBox.SelectedText = "";
             this.LogMetroTextBox.SelectionLength = 0;
