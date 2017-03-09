@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EQRSWindows {
+namespace EQRSWindows.Reporting {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace EQRSWindows {
         
         public override string FullResourceName {
             get {
-                return "EQRSWindows.EmergencyReport.rpt";
+                return "EQRSWindows.Reporting.EmergencyReport.rpt";
             }
             set {
                 // Do nothing
