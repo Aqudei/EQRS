@@ -49,7 +49,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 1;
-            this.metroTabControl1.Size = new System.Drawing.Size(656, 394);
+            this.metroTabControl1.Size = new System.Drawing.Size(760, 520);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -76,7 +76,7 @@
             this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(648, 352);
+            this.metroTabPage3.Size = new System.Drawing.Size(752, 478);
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "Emergency Transponder";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
@@ -102,9 +102,10 @@
             // 
             this.settingsPage1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settingsPage1.Location = new System.Drawing.Point(0, 0);
+            this.settingsPage1.MinimumSize = new System.Drawing.Size(600, 400);
             this.settingsPage1.Name = "settingsPage1";
             this.settingsPage1.Padding = new System.Windows.Forms.Padding(10);
-            this.settingsPage1.Size = new System.Drawing.Size(648, 352);
+            this.settingsPage1.Size = new System.Drawing.Size(752, 478);
             this.settingsPage1.TabIndex = 2;
             this.settingsPage1.UseSelectable = true;
             this.settingsPage1.Load += new System.EventHandler(this.settingsPage1_Load);
@@ -113,8 +114,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 474);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.metroTabControl1);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "MainForm";
             this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "EQRS";

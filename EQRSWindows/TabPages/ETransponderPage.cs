@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using GsmComm.GsmCommunication;
 using GsmComm.PduConverter;
+using EQRSWindows;
 
 namespace EQRSWin.TabPages
 {
@@ -250,6 +251,14 @@ namespace EQRSWin.TabPages
                 return;
             }
             Output("Unknown message type: " + pdu.GetType().ToString());
+        }
+
+        private void metroLink1_Click(object sender, EventArgs e)
+        {
+            using (var rptForm = new ReportForm())
+            {
+                rptForm.ShowDialog();
+            }
         }
     }
 }
