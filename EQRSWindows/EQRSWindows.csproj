@@ -55,8 +55,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
-    <Reference Include="GeocodeSharp, Version=1.5.0.0, Culture=neutral, PublicKeyToken=1ae1b40d2ef46f2d, processorArchitecture=MSIL">
-      <HintPath>..\packages\GeocodeSharp.1.5.0\lib\net451\GeocodeSharp.dll</HintPath>
+    <Reference Include="Geocoding, Version=3.6.0.0, Culture=neutral, PublicKeyToken=7c714700b88674c7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Geocoding.net.3.6.0\lib\net40\Geocoding.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="GSMCommServer, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
@@ -112,6 +112,10 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EQRSContextDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703091012493_addedAddress.cs" />
+    <Compile Include="Migrations\201703091012493_addedAddress.Designer.cs">
+      <DependentUpon>201703091012493_addedAddress.cs</DependentUpon>
     </Compile>
     <Compile Include="Reporting\EmergencyReport.cs">
       <AutoGen>True</AutoGen>
@@ -182,6 +186,9 @@
     <Compile Include="TabPages\RespondersPage.Designer.cs">
       <DependentUpon>RespondersPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\201703091012493_addedAddress.resx">
+      <DependentUpon>201703091012493_addedAddress.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporting\EmergencyReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EmergencyReport.cs</LastGenOutput>

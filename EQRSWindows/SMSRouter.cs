@@ -7,11 +7,15 @@ using GsmComm.GsmCommunication;
 using GsmComm.PduConverter;
 using System.Diagnostics;
 using System.ComponentModel.DataAnnotations.Schema;
+using Geocoding.Google;
+using Geocoding;
 
 namespace EQRSWin
 {
     public class SMSRouter
     {
+        const string APIKey = "AIzaSyBSk8jDGYlf4ftufnFCKvXWwXRrDo8kc5c";
+
         public event EventHandler<NewEmergencyEventArg> NewEmergencyEvent;
 
         private Regex rgx;
@@ -43,12 +47,21 @@ namespace EQRSWin
                 er.EmergencyDetail = rslt.Groups[2].Value.ToUpper();
                 er.Latitude = double.Parse(rslt.Groups[3].Value);
                 er.Longitude = double.Parse(rslt.Groups[4].Value);
+                er.Address = GetAddress(er.Latitude, er.Longitude);
                 return er;
             }
             else
             {
                 return null;
             }
+        }
+
+
+        private string GetAddress(double lat, double longi)
+        {
+            IGeocoder geocoder = new GoogleGeocoder() { ApiKey = APIKey };
+            var addresses = geocoder.ReverseGeocode(lat, longi);
+            return addresses.FirstOrDefault()?.FormattedAddress;
         }
 
         public void HandleReceived(string originatingAddress, DateTime sCTimestamp, string userDataText)

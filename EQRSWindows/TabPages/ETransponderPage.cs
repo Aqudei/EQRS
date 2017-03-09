@@ -15,6 +15,8 @@ namespace EQRSWin.TabPages
 {
     public partial class ETransponderPage : MetroFramework.Controls.MetroUserControl
     {
+        
+
         private SMSRouter smsRouter = null;
         private delegate void SetTextCallback(string text);
         private GsmCommMain commMain;
@@ -241,14 +243,6 @@ namespace EQRSWin.TabPages
                 return;
             }
             Output("Unknown message type: " + pdu.GetType().ToString());
-        }
-
-        private void metroLink1_Click(object sender, EventArgs e)
-        {
-            using (var rptForm = new ReportForm())
-            {
-                rptForm.ShowDialog();
-            }
         }
     }
 }

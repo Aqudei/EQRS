@@ -15,5 +15,7 @@ namespace EQRSWin
         public double Longitude { get; internal set; }
         public string ResponderCode { get; internal set; }
         public string MobileNumber { get; set; }
+
+        public string Address { get; set; }
     }
 }
