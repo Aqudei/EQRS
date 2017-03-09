@@ -71,12 +71,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EQRSWin\EQRSWin.csproj">
-      <Project>{62e72493-bf3a-4913-8401-c9092f4f239a}</Project>
-      <Name>EQRSWin</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

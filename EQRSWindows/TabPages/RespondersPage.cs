@@ -47,13 +47,17 @@ namespace EQRSWin.TabPages
                 }
 
                 ctx.SaveChanges();
+                MetroFramework.MetroMessageBox.Show(this, "Changes were saved.");
             }
         }
 
         private void respondersMetroGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            RepondersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = RepondersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex]
+            if (RepondersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                RepondersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = RepondersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex]
                 .Value.ToString().ToUpper();
+            }
         }
     }
 }

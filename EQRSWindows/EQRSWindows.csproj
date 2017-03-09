@@ -170,6 +170,12 @@
     <Compile Include="TabPages\ETransponderPage.Designer.cs">
       <DependentUpon>ETransponderPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="TabPages\ReportingPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TabPages\ReportingPage.Designer.cs">
+      <DependentUpon>ReportingPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="TabPages\RespondersPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TabPages\ETransponderPage.resx">
       <DependentUpon>ETransponderPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabPages\ReportingPage.resx">
+      <DependentUpon>ReportingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TabPages\RespondersPage.resx">
       <DependentUpon>RespondersPage.cs</DependentUpon>

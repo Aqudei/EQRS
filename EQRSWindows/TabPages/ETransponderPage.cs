@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using GsmComm.GsmCommunication;
 using GsmComm.PduConverter;
 using EQRSWindows;
+using System.Diagnostics;
 
 namespace EQRSWin.TabPages
 {
@@ -200,19 +201,8 @@ namespace EQRSWin.TabPages
 
         private void Output(string text)
         {
-            if (this.LogMetroTextBox.InvokeRequired)
-            {
-                SetTextCallback stc = new SetTextCallback(Output);
-                this.Invoke(stc, new object[] { text });
-            }
-            else
-            {
-                LogMetroTextBox.AppendText(text);
-                LogMetroTextBox.AppendText("\r\n");
-            }
+            Debug.WriteLine(DateTime.Now + " : " + text);
         }
-
-
 
         private void ShowMessage(SmsPdu pdu)
         {

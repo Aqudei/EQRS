@@ -20,6 +20,7 @@ namespace EQRSWindows
             InitializeComponent();
 
             ReportDS = new EQRSContextDataSet();
+            
             using (var adptr = new EQRSContextDataSetTableAdapters.NewEmergencyEventArgsTableAdapter())
             {
                 adptr.Fill(ReportDS.NewEmergencyEventArgs);

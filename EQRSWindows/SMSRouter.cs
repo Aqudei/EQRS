@@ -59,21 +59,26 @@ namespace EQRSWin
 
                 using (var ctx = new EQRSContext())
                 {
-                    var responder = ctx.Responders.Where(r => r.ResponderCode == er.ResponderCode).FirstOrDefault();
-                    if (responder != null)
+                    var responders = ctx.Responders.Where(r => r.ResponderCode == er.ResponderCode).ToList();
+                    if (responders != null && responders.Any())
                     {
                         if (_mainComm != null && _mainComm.IsConnected())
                         {
-                            Debug.WriteLine("Sending message to responder " + responder.ToString());
-                            var msg = string.Format("Emergency:{0}\nWhere: lat {1} long {2}", er.EmergencyDetail, er.Latitude, er.Longitude);
-                            SmsSubmitPdu pdu = new SmsSubmitPdu(msg, responder.MobileNumber);
-                            _mainComm.SendMessage(pdu);
-                            er.MobileNumber = originatingAddress;
-                            NewEmergencyEvent?.Invoke(this, new NewEmergencyEventArg
+                            foreach (var r in responders)
                             {
-                                Request = er,
-                                Time = sCTimestamp
-                            });
+
+                                Debug.WriteLine("Sending message to responder " + r.ToString());
+                                var msg = string.Format("Emergency:{0}\nWhere: lat {1} long {2}", er.EmergencyDetail, er.Latitude, er.Longitude);
+                                SmsSubmitPdu pdu = new SmsSubmitPdu(msg, r.MobileNumber);
+                                _mainComm.SendMessage(pdu);
+                                er.MobileNumber = originatingAddress;
+                                NewEmergencyEvent?.Invoke(this, new NewEmergencyEventArg
+                                {
+                                    Request = er,
+                                    Time = sCTimestamp
+                                });
+
+                            }
                         }
                     }
                 }

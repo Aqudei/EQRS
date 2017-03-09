@@ -35,8 +35,6 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.PortNameMetroComboBox = new MetroFramework.Controls.MetroComboBox();
             this.BaudRateMetroComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.LogMetroTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.metroLink1 = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -129,60 +127,10 @@
             this.BaudRateMetroComboBox.TabIndex = 9;
             this.BaudRateMetroComboBox.UseSelectable = true;
             // 
-            // LogMetroTextBox
-            // 
-            this.LogMetroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.LogMetroTextBox.CustomButton.Image = null;
-            this.LogMetroTextBox.CustomButton.Location = new System.Drawing.Point(394, 1);
-            this.LogMetroTextBox.CustomButton.Name = "";
-            this.LogMetroTextBox.CustomButton.Size = new System.Drawing.Size(57, 57);
-            this.LogMetroTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.LogMetroTextBox.CustomButton.TabIndex = 1;
-            this.LogMetroTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.LogMetroTextBox.CustomButton.UseSelectable = true;
-            this.LogMetroTextBox.CustomButton.Visible = false;
-            this.LogMetroTextBox.Lines = new string[0];
-            this.LogMetroTextBox.Location = new System.Drawing.Point(10, 215);
-            this.LogMetroTextBox.MaxLength = 32767;
-            this.LogMetroTextBox.Multiline = true;
-            this.LogMetroTextBox.Name = "LogMetroTextBox";
-            this.LogMetroTextBox.PasswordChar = '\0';
-            this.LogMetroTextBox.PromptText = "[Activity log goes here.]";
-            this.LogMetroTextBox.ReadOnly = true;
-            this.LogMetroTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.LogMetroTextBox.SelectedText = "";
-            this.LogMetroTextBox.SelectionLength = 0;
-            this.LogMetroTextBox.SelectionStart = 0;
-            this.LogMetroTextBox.ShortcutsEnabled = true;
-            this.LogMetroTextBox.Size = new System.Drawing.Size(474, 184);
-            this.LogMetroTextBox.TabIndex = 10;
-            this.LogMetroTextBox.UseSelectable = true;
-            this.LogMetroTextBox.WaterMark = "[Activity log goes here.]";
-            this.LogMetroTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.LogMetroTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLink1
-            // 
-            this.metroLink1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLink1.Location = new System.Drawing.Point(349, 416);
-            this.metroLink1.Name = "metroLink1";
-            this.metroLink1.Size = new System.Drawing.Size(132, 23);
-            this.metroLink1.TabIndex = 11;
-            this.metroLink1.Text = "Show Report";
-            this.metroLink1.UseSelectable = true;
-            this.metroLink1.Click += new System.EventHandler(this.metroLink1_Click);
-            // 
             // ETransponderPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.metroLink1);
-            this.Controls.Add(this.LogMetroTextBox);
             this.Controls.Add(this.BaudRateMetroComboBox);
             this.Controls.Add(this.PortNameMetroComboBox);
             this.Controls.Add(this.metroLabel3);
@@ -192,7 +140,7 @@
             this.Controls.Add(this.metroLabel1);
             this.Name = "ETransponderPage";
             this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(494, 452);
+            this.Size = new System.Drawing.Size(494, 245);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,7 +155,5 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroComboBox PortNameMetroComboBox;
         private MetroFramework.Controls.MetroComboBox BaudRateMetroComboBox;
-        private MetroFramework.Controls.MetroTextBox LogMetroTextBox;
-        private MetroFramework.Controls.MetroLink metroLink1;
     }
 }
