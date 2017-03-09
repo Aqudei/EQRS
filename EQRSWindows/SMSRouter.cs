@@ -92,7 +92,7 @@ namespace EQRSWin
                             foreach (var r in responders)
                             {
                                 Debug.WriteLine("Sending message to responder " + r.ToString());
-                                var msg = string.Format("Emergency {0} occured at location near {1} with coordinates {2} Latitude and {3} Longitude.",
+                                var msg = string.Format("[{0}] near {1} @ {2} Latitude, {3} Longitude.",
                                     er.EmergencyDetail, er.Address, er.Latitude, er.Longitude);
                                 SmsSubmitPdu pdu = new SmsSubmitPdu(msg, r.MobileNumber);
                                 _mainComm.SendMessage(pdu);

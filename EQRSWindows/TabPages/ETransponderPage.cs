@@ -140,7 +140,7 @@ namespace EQRSWin.TabPages
         {
             if (LogMetroTextBox.InvokeRequired)
             {
-                LogMetroTextBox.Invoke(new Action<string>(x => LogMetroTextBox.Text = x), e.Text);
+                LogMetroTextBox.Invoke(new Action<string>(x => LogMetroTextBox.Text += "\n" + x), e.Text);
             }
             else
             {

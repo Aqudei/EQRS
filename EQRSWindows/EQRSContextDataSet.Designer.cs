@@ -1028,7 +1028,7 @@ SELECT NewEmergencyEventArgId, Request_EmergencyDetail, Request_Latitude, Reques
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=EQRSContext;Integrated Security=True";
+            this._connection.ConnectionString = global::EQRSWindows.Properties.Settings.Default.EQRSContextConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
