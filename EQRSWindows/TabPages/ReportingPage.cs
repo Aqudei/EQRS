@@ -16,7 +16,8 @@ namespace EQRSWindows.TabPages
         {
             InitializeComponent();
 
-            timerDataFetcher.Start();
+            if (DesignMode == false)
+                timerDataFetcher.Start();
         }
 
         private void metroLink1_Click(object sender, EventArgs e)

@@ -35,6 +35,7 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.PortNameMetroComboBox = new MetroFramework.Controls.MetroComboBox();
             this.BaudRateMetroComboBox = new MetroFramework.Controls.MetroComboBox();
+            this.LogMetroTextBox = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -79,14 +80,17 @@
             // 
             this.metroLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel3.BackColor = System.Drawing.Color.Silver;
+            this.metroLabel3.BackColor = System.Drawing.Color.Black;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel3.ForeColor = System.Drawing.Color.ForestGreen;
             this.metroLabel3.Location = new System.Drawing.Point(10, 52);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(484, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(488, 19);
             this.metroLabel3.TabIndex = 7;
             this.metroLabel3.Text = "Modem Settings";
+            this.metroLabel3.UseCustomBackColor = true;
+            this.metroLabel3.UseCustomForeColor = true;
             // 
             // PortNameMetroComboBox
             // 
@@ -127,10 +131,51 @@
             this.BaudRateMetroComboBox.TabIndex = 9;
             this.BaudRateMetroComboBox.UseSelectable = true;
             // 
+            // LogMetroTextBox
+            // 
+            this.LogMetroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LogMetroTextBox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            // 
+            // 
+            // 
+            this.LogMetroTextBox.CustomButton.Image = null;
+            this.LogMetroTextBox.CustomButton.Location = new System.Drawing.Point(284, 1);
+            this.LogMetroTextBox.CustomButton.Name = "";
+            this.LogMetroTextBox.CustomButton.Size = new System.Drawing.Size(187, 187);
+            this.LogMetroTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.LogMetroTextBox.CustomButton.TabIndex = 1;
+            this.LogMetroTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.LogMetroTextBox.CustomButton.UseSelectable = true;
+            this.LogMetroTextBox.CustomButton.Visible = false;
+            this.LogMetroTextBox.ForeColor = System.Drawing.Color.ForestGreen;
+            this.LogMetroTextBox.Lines = new string[0];
+            this.LogMetroTextBox.Location = new System.Drawing.Point(13, 233);
+            this.LogMetroTextBox.MaxLength = 32767;
+            this.LogMetroTextBox.Multiline = true;
+            this.LogMetroTextBox.Name = "LogMetroTextBox";
+            this.LogMetroTextBox.PasswordChar = '\0';
+            this.LogMetroTextBox.PromptText = "[Log goes here]";
+            this.LogMetroTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.LogMetroTextBox.SelectedText = "";
+            this.LogMetroTextBox.SelectionLength = 0;
+            this.LogMetroTextBox.SelectionStart = 0;
+            this.LogMetroTextBox.ShortcutsEnabled = true;
+            this.LogMetroTextBox.Size = new System.Drawing.Size(472, 189);
+            this.LogMetroTextBox.TabIndex = 10;
+            this.LogMetroTextBox.UseCustomBackColor = true;
+            this.LogMetroTextBox.UseCustomForeColor = true;
+            this.LogMetroTextBox.UseSelectable = true;
+            this.LogMetroTextBox.WaterMark = "[Log goes here]";
+            this.LogMetroTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.LogMetroTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // ETransponderPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LogMetroTextBox);
             this.Controls.Add(this.BaudRateMetroComboBox);
             this.Controls.Add(this.PortNameMetroComboBox);
             this.Controls.Add(this.metroLabel3);
@@ -140,7 +185,7 @@
             this.Controls.Add(this.metroLabel1);
             this.Name = "ETransponderPage";
             this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(494, 245);
+            this.Size = new System.Drawing.Size(498, 435);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +200,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroComboBox PortNameMetroComboBox;
         private MetroFramework.Controls.MetroComboBox BaudRateMetroComboBox;
+        private MetroFramework.Controls.MetroTextBox LogMetroTextBox;
     }
 }

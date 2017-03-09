@@ -15,7 +15,7 @@ namespace EQRSWin.TabPages
 {
     public partial class ETransponderPage : MetroFramework.Controls.MetroUserControl
     {
-        
+
 
         private SMSRouter smsRouter = null;
         private delegate void SetTextCallback(string text);
@@ -121,7 +121,9 @@ namespace EQRSWin.TabPages
                     smsRouter = new SMSRouter(commMain);
                     commMain.Open();
                     commMain.EnableMessageNotifications();
+                    commMain.LogLevel = LogLevel.Verbose;
                     commMain.MessageReceived += Phone_MessageReceived;
+                    commMain.LoglineAdded += CommMain_LoglineAdded;
                     FindForm().FormClosing += ETransponderPage_FormClosing;
                     smsRouter.NewEmergencyEvent += SmsRouter_NewEmergencyEvent;
                 }
@@ -131,6 +133,18 @@ namespace EQRSWin.TabPages
             catch (Exception ex)
             {
                 ShowException(ex);
+            }
+        }
+
+        private void CommMain_LoglineAdded(object sender, LoglineAddedEventArgs e)
+        {
+            if (LogMetroTextBox.InvokeRequired)
+            {
+                LogMetroTextBox.Invoke(new Action<string>(x => LogMetroTextBox.Text = x), e.Text);
+            }
+            else
+            {
+                LogMetroTextBox.Text += "\n" + e.Text;
             }
         }
 

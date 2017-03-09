@@ -56,12 +56,18 @@ namespace EQRSWin
             }
         }
 
-
         private string GetAddress(double lat, double longi)
         {
+            Debug.WriteLine("Getting the address: ");
             IGeocoder geocoder = new GoogleGeocoder() { ApiKey = APIKey };
             var addresses = geocoder.ReverseGeocode(lat, longi);
-            return addresses.FirstOrDefault()?.FormattedAddress;
+            if (addresses.Any())
+            {
+                Debug.WriteLine("Found address: " + addresses.First().FormattedAddress);
+                return addresses.FirstOrDefault()?.FormattedAddress;
+            }
+            else
+                return "";
         }
 
         public void HandleReceived(string originatingAddress, DateTime sCTimestamp, string userDataText)
@@ -79,7 +85,6 @@ namespace EQRSWin
                         {
                             foreach (var r in responders)
                             {
-
                                 Debug.WriteLine("Sending message to responder " + r.ToString());
                                 var msg = string.Format("Emergency:{0}\nWhere: lat {1} long {2}", er.EmergencyDetail, er.Latitude, er.Longitude);
                                 SmsSubmitPdu pdu = new SmsSubmitPdu(msg, r.MobileNumber);
@@ -90,7 +95,6 @@ namespace EQRSWin
                                     Request = er,
                                     Time = sCTimestamp
                                 });
-
                             }
                         }
                     }
